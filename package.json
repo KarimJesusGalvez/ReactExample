@@ -3,7 +3,9 @@
   "description": "",
   "scripts": {
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^19.1.0"
+  },
   "engines": {
     "node": ">=18"
   }
