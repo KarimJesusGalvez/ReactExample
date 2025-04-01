@@ -1,7 +1,15 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
-import "./index.css"
+import { Provider } from "react-redux";
+import store from "./redux/configureStore.dev";
 
 const rootElement = document.getElementById("ReactApp");
-createRoot(rootElement).render(<App />);
+createRoot(rootElement).render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
