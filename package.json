@@ -1,0 +1,10 @@
+{
+  "name": "ReactMinimalExample",
+  "description": "",
+  "scripts": {
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=18"
+  }
+}
