@@ -1,0 +1,9 @@
+#HeaderContainer {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+
+}
+#HeaderContainer > button {
+    margin: 0.2rem;
+}
