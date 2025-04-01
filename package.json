@@ -1,7 +1,9 @@
 {
   "name": "ReactMinimalExample",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "start": "webpack serve --config ./Config/webpack.config.dev.js --port=3000"
+  },
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
