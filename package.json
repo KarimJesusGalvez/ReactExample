@@ -11,9 +11,16 @@
   },
   "devDependencies": {
     "babel": "^6.23.0",
+    "babel-loader": "8.2.2",
+    "babel-preset-react-app": "^10.1.0",
     "webpack": "^5.98.0",
     "html-webpack-plugin": "^5.6.3",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react-app"
+    ]
   }
 }
