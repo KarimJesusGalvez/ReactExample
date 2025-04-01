@@ -1,0 +1,6 @@
+#RenderErrorContainer > p {
+  color: red;
+  border: solid red;
+  font-weight: 1000;
+  width: max-content;
+}
