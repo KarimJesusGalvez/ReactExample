@@ -7,7 +7,7 @@ import store from "./redux/store/configureStore.dev";
 
 const rootElement = document.getElementById("ReactApp");
 createRoot(rootElement).render(
-  <Provider store={store}>
+  <Provider store={store()}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

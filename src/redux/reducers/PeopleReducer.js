@@ -5,13 +5,13 @@ function reducerDelete(state, action) {
   let new_state = [];
   // TODO use filter
   Object.keys(state).forEach((keys) => {
-    if (state[keys].id !== action.person.id) new_state.push(state[keys]);
+    if (state[keys]._gen_id !== action.person._gen_id) new_state.push(state[keys]);
   });
 
   return new_state;
 }
 
-export default function personReducer(state = initial_state(), action) {
+export default function personReducer(state = initial_state, action) {
   switch (action.type) {
     case DELETE:
       return reducerDelete(state, action);

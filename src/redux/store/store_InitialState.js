@@ -25,4 +25,4 @@ function generate_data(rows) {
   return result;
 }
 
-export default () => generate_data(100);
+export default generate_data(100);
