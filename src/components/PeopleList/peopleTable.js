@@ -1,14 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import generate_data from "../../redux/store_InitialState";
-import "./peopleTable.css"
+import generate_data from "../../redux/store/store_InitialState";
+import "./peopleTable.css";
+import { DELETE } from "../../redux/actions/actionTypes";
+import DeleteButton from "./DeleteButton";
 const initial_data = generate_data(100);
 
 function generatNode(person) {
-    console.info(person);
-
-  const key = (person.nombre + person.pais) + Date.now() + "_" + (Math.random() * (10000 - 0) + 0).toFixed(0);
-  console.info(key)
+  const key = person.nombre + person.pais + Date.now() + "_" + (Math.random() * (10000 - 0) + 0).toFixed(0);
   return (
     <tr key={key}>
       <td>
@@ -16,17 +15,14 @@ function generatNode(person) {
       </td>
       <td>{person.nombre}</td>
       <td>{person.pais}</td>
-      <td>{generateActionButton(person.acciones)}</td>
+      <td>{person.acciones.map((action) => generateActionButton(action))}</td>
     </tr>
   );
 }
 
-function generateActionButton (actions){
-  return (
-    <td>
-      {actions.map((action) => (<button>{action}</button>))}
-    </td>
-  );
+function generateActionButton(action) {
+  if (action === DELETE) return <div key={action.id + Math.random() * 100}>{<DeleteButton key={action.id + Math.random() * 100}></DeleteButton>}</div>;
+  else throw error("Action " + action + " not hooked up to a button");
 }
 
 const Peopletable = () => {
