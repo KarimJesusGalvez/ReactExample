@@ -1,12 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import generate_data from "../../redux/store_InitialState";
-
+import "./peopleTable.css"
 const initial_data = generate_data(100);
+
 function generatNode(person) {
     console.info(person);
 
-  // TODO dynamic columns
   const key = (person.nombre + person.pais) + Date.now() + "_" + (Math.random() * (10000 - 0) + 0).toFixed(0);
   console.info(key)
   return (
@@ -16,15 +16,24 @@ function generatNode(person) {
       </td>
       <td>{person.nombre}</td>
       <td>{person.pais}</td>
-      <td>{person.acciones}</td>
+      <td>{generateActionButton(person.acciones)}</td>
     </tr>
   );
 }
+
+function generateActionButton (actions){
+  return (
+    <td>
+      {actions.map((action) => (<button>{action}</button>))}
+    </td>
+  );
+}
+
 const Peopletable = () => {
   const people = useSelector((state) => state.people);
   const peoplList = require("../../../example_data/countries.json");
   return (
-    <div>
+    <div id="PeopleTableContainer">
       <table>
         <thead>
           <tr>
