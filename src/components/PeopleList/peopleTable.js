@@ -31,13 +31,15 @@ function generateActionButton (actions){
 
 const Peopletable = () => {
   const people = useSelector((state) => state.people);
-  const peoplList = require("../../../example_data/countries.json");
+  const tableHeaders = Object.keys(people[0]).slice(1, 5);
   return (
     <div id="PeopleTableContainer">
       <table>
         <thead>
           <tr>
-            <th>{Object.keys(people).map((header) => header)}</th>
+            {tableHeaders.map((header) => (
+              <th key={header + "_" + Math.random() * 100}>{header[0].toUpperCase() + header.slice(1)}</th>
+            ))}
           </tr>
         </thead>
         <tbody>{Object.keys(people).length > 0 ? people.map((key) => generatNode(key)) : initial_data.map((person) => generatNode(person))}</tbody>
