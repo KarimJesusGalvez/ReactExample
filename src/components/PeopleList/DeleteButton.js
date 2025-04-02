@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
-import store from "../../redux/store/store";
+import initial_store from "../../redux/store/store_InitialState";
 import { deletePerson } from "../../redux/actions/PersonAction";
 import { DELETE } from "../../redux/actions/actionTypes";
 import "./Buttons.css";
