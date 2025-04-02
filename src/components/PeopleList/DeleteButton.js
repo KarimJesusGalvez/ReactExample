@@ -7,12 +7,29 @@ import "./Buttons.css";
 
 export default function DeleteButton() {
   const dispatch = useDispatch();
-  const [person, setPerson] = useState(store);
+  const [person, setPerson] = useState(initial_store);
 
   const handleClick = (event) => {
-    console.warn("handle remove Person with " + JSON.stringify(person));
-    dispatch(deletePerson(person));
-    setPerson(person);
+    // setPerson({ ...person, value: event.target.value });
+    console.debug("Handle click for " + DELETE  + " start...")
+    console.debug("handle remove Person with store " + JSON.stringify(person));
+    let count = 0;
+    let node;    
+    let new_state = {...person}
+    var buttons = document.evaluate("//table//button[text()='" + DELETE + "']", document, null, XPathResult.ANY_TYPE, null);
+    while ((node = buttons.iterateNext())) {
+      if (node === event.target) {
+        console.warn("Deleting row " + count + JSON.stringify(person[count]));
+        dispatch(deletePerson(person[count]));
+        // TODO replace
+        new_state[count] = undefined
+        setPerson(new_state)
+        // TODO replace
+        break;
+      }
+      else 
+        count++
+    }
   };
 
   return (
