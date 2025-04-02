@@ -8,6 +8,10 @@
 #PeopleTableContainer table {
     align-items: center;
 }
+#PeopleTableContainer th {
+    font-weight: 700;
+    font-size: larger;
+}
 
 #PeopleTableContainer td {
     padding: 1rem;
@@ -17,4 +21,9 @@
 #PeopleTableContainer button {
     margin-right: 1rem;
     margin-bottom: 1rem;
+}
+
+#PeopleTableContainer img {
+    width: 70px;
+    height: 70px;
 }
